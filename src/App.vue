@@ -13,7 +13,7 @@
             <v-btn class="mt-12" color="blue lighten-2" dark large href="/pre-made-themes">
               Get Started
             </v-btn>
-          </v-layout>
+          </v-layout> 
         </v-parallax>
       </section>
 
@@ -27,7 +27,15 @@
                 </v-card-title>
                 <v-card-text>
                   <v-form class="px-3">
-                    <v-text-field label="Nombres" />
+                    <v-text-field 
+                    label="Nombres" 
+                    required
+                    type="name"
+                    v-model="name"
+                    :error-messages="errors.collect('name')"
+                    data-vv-validate-on="change|custom|input"
+                    autofocus id="name"
+                    />
                     <v-text-field label="Apellidos" />
                     <v-text-field
                       type="email"
@@ -38,6 +46,8 @@
                       v-validate="'required|email|max:100'"
                       :error-messages="errors.collect('email')"
                       required
+                      data-vv-name="email"
+                      data-vv-scope="email"
                       data-vv-validate-on="change|custom|input"
                       autofocus id="email"
                     />
