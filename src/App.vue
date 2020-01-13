@@ -55,8 +55,7 @@
                       label="Celular"
                       v-model="phoneNumber"
                       :counter="80"
-                      v-validate="'required|max:80'"
-                      :error-messages="errors.collect('phoneNumber')"
+                      v-validate="'required|max:80'"                      
                       data-vv-name="phoneNumber"
                       data-vv-scope="phoneNumber"
                       required
@@ -65,7 +64,7 @@
                   </v-form>
                 </v-card-text>
                 <v-card-actions>
-                  <v-btn @click="validate('submit')">Validate</v-btn>
+                  <v-btn>Validate</v-btn>
                 </v-card-actions>
               </v-card>
             </v-flex>
@@ -158,14 +157,22 @@
 </template>
 
 <script>
+import api from './api'
 
 export default {
   name: 'App',
-  data: () => ({
-    name:'',
-    lastname: '',
-    email: '',
-    phoneNumber: ''
-  }),
+  data () {
+    return {
+      name:'',
+      lastname: '',
+      email: '',
+      phoneNumber: '',
+      info: []
+    }
+  },
+
+  created () {
+    api.apiInfo().then(info => (this.info = info))
+  }
 };
 </script>
