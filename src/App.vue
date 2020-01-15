@@ -66,9 +66,10 @@
                 <v-card-actions>
                   <v-btn>Validate</v-btn>
                 </v-card-actions>
-              </v-card>
-            </v-flex>
+              </v-card>              
+            </v-flex>                        
           </v-layout>
+          <table-info></table-info>
         </v-container>
       </section>
 
@@ -158,9 +159,12 @@
 
 <script>
 import api from './api'
+import TableInfo from './components/TableInfo'
 
 export default {
   name: 'App',
+  components: { TableInfo },
+
   data () {
     return {
       name:'',
