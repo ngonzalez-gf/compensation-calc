@@ -1,11 +1,29 @@
-const url = 'https://jsonplaceholder.typicode.com/todos/1'
+const todosUrl = 'https://jsonplaceholder.typicode.com/todos/1';
+const countriesUrl = 'https://restcountries.eu/rest/v2/all';
 
-function apiInfo() {
-    return fetch(`https://jsonplaceholder.typicode.com/posts`)
-    .then(response => response.json())
-    .then(json => console.log(json))
+async function apiInfo() {
+    // const response = await fetch(`https://urljsonplaceholder.typicode.com/posts`)
+    const response = await fetch(todosUrl)
+    const json = await response.json()
+    // console.log(json)
+    return json
+}
+
+
+
+async function apiCountries() {
+    console.log('api@apiCountries')
+    // Consumir API
+    const response = await fetch(countriesUrl)
+    // Obtener respuesta de la API
+    const data = await response.json()
+    console.log(data[0].name)
+
+    // Retornar los datos
+    return data
 }
 
 export default {
-    apiInfo
+    apiInfo,
+    apiCountries
 }

@@ -9,7 +9,7 @@
           <v-layout column align-center justify-center class="white--text">
             <img src="./assets/vuetify.png" alt="Vuetify.js" height="200">
             <h1 class="white--text mb-2 display-1 text-center">Calculadora de compensación</h1>
-            <div class="subheading mb-4 text-center">Powered by Vuetify</div>
+            <div class="subheading mb-4 text-center">Powered by GFourmis</div>
             <v-btn class="mt-12" color="blue lighten-2" dark large href="/pre-made-themes">
               Get Started
             </v-btn>
@@ -75,15 +75,15 @@
 
 
       <section>
-        <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg" height="380">
-          <v-layout column align-center justify-center>
-            <div class="headline white--text mb-4 text-center">Web development has never been easier</div>
-            <em>Kick-start your application today</em>
-            <v-btn class="mt-12" color="blue lighten-2" dark large href="/pre-made-themes">
-              Get Started
-            </v-btn>
-          </v-layout>
-        </v-parallax>
+        <v-layout colunm wrap class="my-12" justify-center>
+          <v-flex xs12 sm4 class="my-4">
+            <v-card>
+              <v-card-title>
+                <h1 class="aling-center">Formulario de paises</h1>
+              </v-card-title>
+            </v-card>
+          </v-flex>
+        </v-layout>
       </section>
 
       <section>
@@ -171,12 +171,14 @@ export default {
       lastname: '',
       email: '',
       phoneNumber: '',
-      info: []
+      info: [], 
+      infoCountries: []
     }
   },
 
   created () {
-    api.apiInfo().then(info => (this.info = info))
+    api.apiInfo().then(info => (this.info = info)),
+    api.apiCountries().then(infoCountries => (this.infoCountries = infoCountries))
   }
 };
 </script>
