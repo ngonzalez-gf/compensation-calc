@@ -17,7 +17,9 @@ async function apiCountries() {
     const response = await fetch(countriesUrl)
     // Obtener respuesta de la API
     const data = await response.json()
+    // console.log(data)
     console.log(data[0].name)
+    console.log(data[0].capital)
 
     // Retornar los datos
     return data

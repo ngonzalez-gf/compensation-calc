@@ -81,6 +81,7 @@
               <v-card-title>
                 <h1 class="aling-center">Formulario de paises</h1>
               </v-card-title>
+                <form-countries></form-countries>
             </v-card>
           </v-flex>
         </v-layout>
@@ -160,10 +161,11 @@
 <script>
 import api from './api'
 import TableInfo from './components/TableInfo'
+import FormCountries from './components/FormCountries'
 
 export default {
   name: 'App',
-  components: { TableInfo },
+  components: { TableInfo, FormCountries },
 
   data () {
     return {
@@ -172,7 +174,7 @@ export default {
       email: '',
       phoneNumber: '',
       info: [], 
-      infoCountries: []
+      infoCountries: [],      
     }
   },
 
